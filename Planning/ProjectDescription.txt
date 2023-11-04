@@ -1,0 +1,19 @@
+1. Read excel file and store data.
+2. Create an algorithm to calculate LTV, DTI, & FEDTI to determine approval (use credit score too).
+3. Rejected applicants should be saved along with the reason why they were rejected.
+
+Core Functionality:
+1. Data Reading
+2. Loop through Records
+3. Decision algorithm/logic
+4. Generate Suggestions
+5. Metrics Collection
+
+GUI:
+1. Form for data entry
+2. Slider bars
+
+Advanced Features:
+1. Allow users to save results via email
+2. Provide informational link/articles
+3. Generate graph
