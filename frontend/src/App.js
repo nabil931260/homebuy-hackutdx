@@ -1,9 +1,11 @@
-import './components/helloworld.js';
+import React from 'react';
+import HelloWorld from './screens/helloworld';
+import EvalPotentialHomeBuyer from './components/evalpotentialhomebuyer';
 
 function App() {
   return (
     <div className="App">
-      <helloworld />
+      <EvalPotentialHomeBuyer />
     </div>
   );
 }
