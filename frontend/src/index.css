@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksands:wght@300;400;500;700&display=swap');
+
+.helloWorld {
+  font-family: 'Quicksands', sans-serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: #333;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+p {
+  font-family: 'Quicksands', sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+  color: #333;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.resizeIMG {
+  width: 100%;
+  height: auto;
+  justify-content: left;
+  align-items: left;
+  text-align: left;
+}
