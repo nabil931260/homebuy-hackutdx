@@ -179,9 +179,10 @@ public class HomeBuyer {
         this.LTVException = e;
     }
 
-    public DTIException getDTVException() {
+    public DTIException getDTIException() {
         return this.DTIException;
     }
+    
 
     public void setDTIException(DTIException e) {
         this.DTIException = e;

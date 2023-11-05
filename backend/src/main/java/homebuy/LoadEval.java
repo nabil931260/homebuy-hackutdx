@@ -26,7 +26,7 @@ public class LoadEval {
             buyer.setLowCreditScoreException(new LowCreditScoreException(buyer.getCreditScore()));
         }
         if (this.LTV > MAX_LTV) {
-            buyer.setLTVExceptionException(new LTVException(LTV, false));
+            buyer.setLTVException(new LTVException(LTV, false));
         }
         else if (this.LTV > 0.80) {
             buyer.setPMI(0.01);
@@ -41,14 +41,12 @@ public class LoadEval {
         }
 
         buyer.checkApproval();
-        if (buyer.getIsApproved()) {
-            System.out.println("Congratulations! You have been approved.");
-        }
-        //Display the feedback for each exception that exists.
-        else {
-            System.out.println("You have not been approved. Please refer to the feedback below to see how you can improve your application.");
-            generateSuggestions(creditScoreException, LTVException, DTIException, FEDTIException);
-        }
+    if (buyer.getIsApproved()) {
+        System.out.println("Congratulations! You have been approved.");
+    } else {
+        System.out.println("You have not been approved. Please refer to the feedback below to see how you can improve your application.");
+        generateSuggestions(buyer.getLowCreditScoreException(), buyer.getLTVException(), buyer.getDTIException(), buyer.getFEDTIException());
+    }
     }
 
     private void generateSuggestions(LowCreditScoreException creditScoreException, LTVException LTVException, DTIException DTIException, FEDTIException FEDTIException) {
