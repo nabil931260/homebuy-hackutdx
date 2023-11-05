@@ -5,6 +5,11 @@ import homebuy.LTVException;
 
 public class LoadEval {
     private HomeBuyer buyer;
+    // Constants
+    private final int MIN_CREDIT_SCORE = 640;
+    private final double MAX_LTV = 0.95; 
+    private final double MAX_DTI = 0.43; 
+    private final double MAX_FEDTI = 0.28; 
 
     public LoadEval(HomeBuyer buyer) {
         this.buyer = buyer;
@@ -21,22 +26,22 @@ public class LoadEval {
         DTIException DTIException = null;
         FEDTIException FEDTIException = null;
 
-        if (buyer.creditScore < 640) {
+        if (buyer.creditScore < MIN_CREDIT_SCORE) {
             approved = false;
             creditScoreException = new LowCreditScoreException(buyer.creditScore);
         }
-        if (LTV > 95.0) {
+        if (LTV > MAX_LTV) {
             approved = false;
             LTVException = new LTVException(LTV);
         }
-        else if (LTV > 80.0) {
+        else if (LTV > 0.80) {
             PMI = true;
         }
-        if (DTI > 43.0) {
+        if (DTI > MAX_DTI) {
             approved = false;
             DTIException = new DTIException(DTI);
         }
-        if (FEDTI > 28.0) {
+        if (FEDTI > MAX_FEDTI) {
             approved = false;
             FEDTIException = new FEDTIException(FEDTI);
         }
