@@ -1,7 +1,4 @@
-package homebuy;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -57,7 +54,7 @@ public class FileHandler {
     }
 
     public static void main(String[] args) {
-        String excelFilePath = "C:\\Users\\nabil\\OneDrive\\Documents\\HackUTD-2023-HomeBuyerInfo\\HackUTD-2023-HomeBuyerInfo.xlsx"; // change this to the filepath of the excel file
+        String excelFilePath = "C:\\Users\\nabil\\Downloads\\HackUTD-2023-HomeBuyerInfo\\HackUTD-2023-HomeBuyerInfo.xlsx"; // change this to the filepath of the excel file
         FileHandler fileHandler = new FileHandler();
         List<HomeBuyerInfo> list = fileHandler.readExcelFile(excelFilePath);
     }
