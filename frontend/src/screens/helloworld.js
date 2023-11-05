@@ -1,6 +1,6 @@
 import React from "react";
 /*import LogIn from "../components/login";*/
-/*import SignUp from "../components/signup";*/
+import SignUp from "../components/signup";
 import "../index.css";
 
 
@@ -15,6 +15,7 @@ import "../index.css";
 function clickMeSignUp() {
   return(
     <div className="clickMeSignUp">
+      <SignUp />
     </div>
   );
 }

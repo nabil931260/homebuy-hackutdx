@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { axios } from 'axios';
 
-function EvalPotentialHomeBuyer() {
-  const [data, setData] = useState([]);
 
+<<<<<<< HEAD
   useEffect(() => {
     fetch('http://localhost:5000/api/data')
       .then((response) => {
@@ -26,6 +27,22 @@ function EvalPotentialHomeBuyer() {
       </ul>
     </div>
   );
-}
-
-export default EvalPotentialHomeBuyer;
+=======
+export default function evalpotentialhomebuyer() {
+    axios.get('http://localhost:8080/api/v1/users')
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    return (
+        <div>
+          <h1>My React Frontend Application</h1>
+          <ul>
+            {users.map((user) => (
+              <li key={user.id}>{user.name}</li>
+            ))}
+          </ul>
+        </div>
+      );      

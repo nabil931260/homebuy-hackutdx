@@ -15,6 +15,13 @@ public class HomeBuyer {
     private double LTV;
     private double DTI;
     private double FEDTI;
+    private double PMI;
+
+    private LowCreditScoreException LowCreditScoreException;
+    private LTVException LTVException;
+    private DTIException DTIException;
+    private FEDTIException FEDTIException;
+    private boolean isApproved;
 
     // Constructor
     public HomeBuyer(int id, double grossMonthlyIncome, double monthlyCarPayment, 
@@ -34,6 +41,12 @@ public class HomeBuyer {
         calculateLTV();
         calculateDTI();
         calculateFEDTI();
+        this.PMI = 0.0;
+        this.LowCreditScoreException = null;
+        this.LTVException = null;
+        this.DTIException = null;
+        this.FEDTIException = null;
+        checkApproval();
     }
 
     // Getters and Setters
@@ -140,5 +153,67 @@ public class HomeBuyer {
 
     public double getFEDTI() {
         return this.FEDTI;
+    }
+
+    public double getPMI() {
+        return this.PMI;
+    }
+
+    public void setPMI(double PMI) {
+        this.PMI = PMI;
+    }
+
+    public LowCreditScoreException getLowCreditScoreException() {
+        return this.LowCreditScoreException;
+    }
+
+    public void setLowCreditScoreException(LowCreditScoreException e) {
+        this.LowCreditScoreException = e;
+    }
+
+    public LTVException getLTVException() {
+        return this.LTVException;
+    }
+
+    public void setLTVException(LTVException e) {
+        this.LTVException = e;
+    }
+
+    public DTIException getDTVException() {
+        return this.DTIException;
+    }
+
+    public void setDTIException(DTIException e) {
+        this.DTIException = e;
+    }
+
+    public FEDTIException getFEDTIException() {
+        return this.FEDTIException;
+    }
+
+    public void setFEDTIException(FEDTIException e) {
+        this.FEDTIException = e;
+    }
+
+    public void checkApproval() {
+        if (LowCreditScoreException == null && LTVException == null && DTIException == null && FEDTIException == null) {
+            this.isApproved = true;
+        }
+        else {
+            this.isApproved = false;
+        }
+    }
+
+    public boolean getIsApproved() {
+        return this.isApproved;
+    }
+
+    public void setIsApproved(boolean approved) {
+        this.isApproved = approved;
+    }
+
+    public void updateMortgagePMI() {
+        double newMortgage = (this.estimatedMonthlyMortgagePayment * this.PMI);
+        this.estimatedMonthlyMortgagePayment += newMortgage;
     }
 }

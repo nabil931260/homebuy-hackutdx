@@ -17,3 +17,10 @@ Advanced Features:
 1. Allow users to save results via email
 2. Provide informational link/articles
 3. Generate graph
+
+
+Additional Features:
+- Interactive Loan Calculator: users can input different values (e.g., down payment, interest rate) 
+  to see how it affects their loan eligibility and monthly payments.
+
+  
