@@ -13,7 +13,7 @@ function EvalPotentialHomeBuyer() {
       })
       .then((data) => setData(data.result))
       .catch((error) => console.error('Fetch error:', error));
-  }, []);
+  }, []); 
   
 
   return (
