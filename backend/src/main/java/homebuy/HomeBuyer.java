@@ -1,4 +1,4 @@
-package homebuyer;
+package homebuy;
 
 public class HomeBuyer {
     private int id;
