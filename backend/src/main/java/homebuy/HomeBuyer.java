@@ -15,6 +15,7 @@ public class HomeBuyer {
     private double LTV;
     private double DTI;
     private double FEDTI;
+    private double PMI;
 
     private LowCreditScoreException LowCreditScoreException;
     private LTVException LTVException;
@@ -40,6 +41,7 @@ public class HomeBuyer {
         calculateLTV();
         calculateDTI();
         calculateFEDTI();
+        this.PMI = 0.0;
         this.LowCreditScoreException = null;
         this.LTVException = null;
         this.DTIException = null;
@@ -153,6 +155,14 @@ public class HomeBuyer {
         return this.FEDTI;
     }
 
+    public double getPMI() {
+        return this.PMI;
+    }
+
+    public void setPMI(double PMI) {
+        this.PMI = PMI;
+    }
+
     public LowCreditScoreException getLowCreditScoreException() {
         return this.LowCreditScoreException;
     }
@@ -200,5 +210,10 @@ public class HomeBuyer {
 
     public void setIsApproved(boolean approved) {
         this.isApproved = approved;
+    }
+
+    public void updateMortgagePMI() {
+        double newMortgage = (this.estimatedMonthlyMortgagePayment * this.PMI);
+        this.estimatedMonthlyMortgagePayment += newMortgage;
     }
 }

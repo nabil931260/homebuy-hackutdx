@@ -21,17 +21,17 @@ public class LoadEval {
     }
 
     public void evalHomeBuyer() {
-        boolean PMI = false;
 
         if (this.buyer.getCreditScore() < MIN_CREDIT_SCORE) {
             buyer.setLowCreditScoreException(new LowCreditScoreException(buyer.getCreditScore()));
         }
         if (this.LTV > MAX_LTV) {
-            buyer.setLTVExceptionException(new LTVException(LTV, PMI));
+            buyer.setLTVExceptionException(new LTVException(LTV, false));
         }
         else if (this.LTV > 0.80) {
-            PMI = true;
-            buyer.setLTVException(new LTVException(LTV, PMI));
+            buyer.setPMI(0.01);
+            buyer.updateMortgagePMI();
+            buyer.setLTVException(new LTVException(LTV, true));
         }
         if (this.DTI > MAX_DTI) {
             buyer.setDTIException(new DTIException(DTI));
@@ -57,6 +57,7 @@ public class LoadEval {
         }
         if (LTVException != null) {
             System.out.println(LTVException.toString());
+            System.out.println("Your new estimated monthly mortgage will be $" + buyer.getEstimatedMonthlyMortgagePayment());
         }
         if (DTIException != null) {
             System.out.println(DTIException.toString());

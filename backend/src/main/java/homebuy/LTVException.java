@@ -14,7 +14,7 @@ public class LTVException extends Exception{
         }
         else {
             this.errorString = "Your loan to value ratio of " + this.LTV + " allows you to get approval with Private Mortgage Insurance.\n" +
-            "Private Mortgage Insurance is required until your loan to value ratio falls below 80%.\n" +
+            "Private Mortgage Insurance is typically required until your loan to value ratio falls below 80%. Private Mortgage Insurance charges an additional 1% on top of your home payments.\n" +
             "You can learn how to lower your loan to value ratio here: https://wealthfit.com/articles/loan-to-value-ratio/";
         }
     }
