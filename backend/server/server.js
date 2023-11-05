@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 5000; // Port on which the Node.js server will run
+const port = 5000;  // Port on which the Node.js server will run
 
 app.use(express.json());
 
