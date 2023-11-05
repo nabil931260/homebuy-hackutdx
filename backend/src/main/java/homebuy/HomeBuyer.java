@@ -20,7 +20,7 @@ public class HomeBuyer {
     private LowCreditScoreException LowCreditScoreException;
     private LTVException LTVException;
     private DTIException DTIException;
-    private FEDITException FEDITException;
+    private FEDTIException FEDTIException;
     private boolean isApproved;
 
     // Constructor
@@ -45,7 +45,7 @@ public class HomeBuyer {
         this.LowCreditScoreException = null;
         this.LTVException = null;
         this.DTIException = null;
-        this.FEDITException = null;
+        this.FEDTIException = null;
         checkApproval();
     }
 
@@ -187,16 +187,16 @@ public class HomeBuyer {
         this.DTIException = e;
     }
 
-    public FEDITException getFEDITException() {
-        return this.FEDITException;
+    public FEDTIException getFEDTIException() {
+        return this.FEDTIException;
     }
 
-    public void setFEDITException(FEDITException e) {
-        this.FEDITException = e;
+    public void setFEDTIException(FEDTIException e) {
+        this.FEDTIException = e;
     }
 
     public void checkApproval() {
-        if (LowCreditScoreException == null && LTVException == null && DTIException == null && FEDITException == null) {
+        if (LowCreditScoreException == null && LTVException == null && DTIException == null && FEDTIException == null) {
             this.isApproved = true;
         }
         else {

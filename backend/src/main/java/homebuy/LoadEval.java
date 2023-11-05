@@ -37,7 +37,7 @@ public class LoadEval {
             buyer.setDTIException(new DTIException(DTI));
         }
         if (this.FEDTI > MAX_FEDTI) {
-            buyer.setFEDITException(new FEDTIException(FEDTI));
+            buyer.setFEDTIException(new FEDTIException(FEDTI));
         }
 
         buyer.checkApproval();
