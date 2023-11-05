@@ -16,6 +16,12 @@ public class HomeBuyer {
     private double DTI;
     private double FEDTI;
 
+    private LowCreditScoreException LowCreditScoreException;
+    private LTVException LTVException;
+    private DTIException DTIException;
+    private FEDITException FEDITException;
+    private boolean isApproved;
+
     // Constructor
     public HomeBuyer(int id, double grossMonthlyIncome, double monthlyCarPayment, 
                      double monthlyCreditCardPayment, double studentLoanPayment, 
@@ -34,6 +40,11 @@ public class HomeBuyer {
         calculateLTV();
         calculateDTI();
         calculateFEDTI();
+        this.LowCreditScoreException = null;
+        this.LTVException = null;
+        this.DTIException = null;
+        this.FEDITException = null;
+        checkApproval();
     }
 
     // Getters and Setters
@@ -140,5 +151,54 @@ public class HomeBuyer {
 
     public double getFEDTI() {
         return this.FEDTI;
+    }
+
+    public LowCreditScoreException getLowCreditScoreException() {
+        return this.LowCreditScoreException;
+    }
+
+    public void setLowCreditScoreException(LowCreditScoreException e) {
+        this.LowCreditScoreException = e;
+    }
+
+    public LTVException getLTVException() {
+        return this.LTVException;
+    }
+
+    public void setLTVException(LTVException e) {
+        this.LTVException = e;
+    }
+
+    public DTIException getDTVException() {
+        return this.DTIException;
+    }
+
+    public void setDTIException(DTIException e) {
+        this.DTIException = e;
+    }
+
+    public FEDITException getFEDITException() {
+        return this.FEDITException;
+    }
+
+    public void setFEDITException(FEDITException e) {
+        this.FEDITException = e;
+    }
+
+    public void checkApproval() {
+        if (LowCreditScoreException == null && LTVException == null && DTIException == null && FEDITException == null) {
+            this.isApproved = true;
+        }
+        else {
+            this.isApproved = false;
+        }
+    }
+
+    public boolean getIsApproved() {
+        return this.isApproved;
+    }
+
+    public void setIsApproved(boolean approved) {
+        this.isApproved = approved;
     }
 }

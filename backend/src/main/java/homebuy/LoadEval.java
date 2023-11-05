@@ -21,35 +21,27 @@ public class LoadEval {
     }
 
     public void evalHomeBuyer() {
-        boolean approved = true;
         boolean PMI = false;
-        LowCreditScoreException creditScoreException = null;
-        LTVException LTVException = null;
-        DTIException DTIException = null;
-        FEDTIException FEDTIException = null;
 
         if (this.buyer.getCreditScore() < MIN_CREDIT_SCORE) {
-            approved = false;
-            creditScoreException = new LowCreditScoreException(buyer.getCreditScore());
+            buyer.setLowCreditScoreException(new LowCreditScoreException(buyer.getCreditScore()));
         }
         if (this.LTV > MAX_LTV) {
-            approved = false;
-            LTVException = new LTVException(LTV, PMI);
+            buyer.setLTVExceptionException(new LTVException(LTV, PMI));
         }
         else if (this.LTV > 0.80) {
             PMI = true;
-            LTVException = new LTVException(LTV, PMI);
+            buyer.setLTVException(new LTVException(LTV, PMI));
         }
         if (this.DTI > MAX_DTI) {
-            approved = false;
-            DTIException = new DTIException(DTI);
+            buyer.setDTIException(new DTIException(DTI));
         }
         if (this.FEDTI > MAX_FEDTI) {
-            approved = false;
-            FEDTIException = new FEDTIException(FEDTI);
+            buyer.setFEDITException(new FEDTIException(FEDTI));
         }
 
-        if (approved) {
+        buyer.checkApproval();
+        if (buyer.getIsApproved()) {
             System.out.println("Congratulations! You have been approved.");
         }
         //Display the feedback for each exception that exists.
