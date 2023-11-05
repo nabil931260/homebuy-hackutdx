@@ -24,9 +24,7 @@ public class HomeBuyer {
     private boolean isApproved;
 
     // Constructor
-    public HomeBuyer(int id, double grossMonthlyIncome, double monthlyCarPayment,
-            double monthlyCreditCardPayment, double studentLoanPayment, double homeAppraisedValue,
-            double estimatedMonthlyMortgagePayment, double downPaymentAmount, double loanAmount, int creditScore) {
+    public HomeBuyer(int id, double grossMonthlyIncome, double monthlyCarPayment, double monthlyCreditCardPayment, double studentLoanPayment, double homeAppraisedValue, double estimatedMonthlyMortgagePayment, double downPaymentAmount, double loanAmount, int creditScore) {
         this.id = id;
         this.grossMonthlyIncome = grossMonthlyIncome;
         this.monthlyCarPayment = monthlyCarPayment;
@@ -139,8 +137,7 @@ public class HomeBuyer {
     }
 
     private void calculateDTI() {
-        this.DTI = (this.monthlyCarPayment + this.monthlyCreditCardPayment + this.studentLoanPayment
-                + this.estimatedMonthlyMortgagePayment) / this.grossMonthlyIncome;
+        this.DTI = (this.monthlyCarPayment + this.monthlyCreditCardPayment + this.studentLoanPayment + this.estimatedMonthlyMortgagePayment) / this.grossMonthlyIncome;
     }
 
     public double getDTI() {
@@ -157,18 +154,4 @@ public class HomeBuyer {
 
     public double getPMI() {
         return this.PMI;
-    }
-
-    public void setPMI(double PMI) {
-        this.PMI = PMI;
-    }
-
-    public LowCreditScoreException getLowCreditScoreException() {
-        return this.LowCreditScoreException;
-    }
-
-    public void setLowCreditScoreException(LowCreditScoreException e) {
-        this.LowCreditScoreException = e;
-    }
-
-    public LTVException getLTVException
+   
