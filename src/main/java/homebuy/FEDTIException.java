@@ -6,7 +6,8 @@ public class FEDTIException extends Exception{
 
     public FEDTIException(double FEDTI) {
         this.FEDTI = FEDTI;
-        this.errorString = "Your front-end debt to income ratio of " + this.FEDTI + " is too high for approval.\n" + 
+        this.errorString = "Your front-end debt to income ratio of " + this.FEDTI + " is too high for approval.\n" +
+        "An ideal front-end debt to income ratio will be 28% or lower.\n" +
         "You can learn how to lower your front-end debt to income ratio here: https://www.investopedia.com/terms/f/front-end-debt-to-income-ratio.asp";
     }
 

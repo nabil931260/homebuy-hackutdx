@@ -1,24 +1,26 @@
 package homebuy;
 
-import java.util.*;
-
 public class HomeBuyer {
     // Attributes
-    private String id;
+    private int id;
     private double grossMonthlyIncome;
-    private double monthlyCarPayment;
     private double monthlyCreditCardPayment;
+    private double monthlyCarPayment;
     private double studentLoanPayment;
     private double homeAppraisedValue;
     private double estimatedMonthlyMortgagePayment;
     private double downPaymentAmount;
+    private double loanAmount;
     private int creditScore;
+    private double LTV;
+    private double DTI;
+    private double FEDTI;
 
     // Constructor
-    public HomeBuyer(String id, double grossMonthlyIncome, double monthlyCarPayment, 
+    public HomeBuyer(int id, double grossMonthlyIncome, double monthlyCarPayment, 
                      double monthlyCreditCardPayment, double studentLoanPayment, 
                      double homeAppraisedValue, double estimatedMonthlyMortgagePayment, 
-                     double downPaymentAmount, int creditScore) {
+                     double downPaymentAmount, double loanAmount, int creditScore) {
         this.id = id;
         this.grossMonthlyIncome = grossMonthlyIncome;
         this.monthlyCarPayment = monthlyCarPayment;
@@ -27,15 +29,19 @@ public class HomeBuyer {
         this.homeAppraisedValue = homeAppraisedValue;
         this.estimatedMonthlyMortgagePayment = estimatedMonthlyMortgagePayment;
         this.downPaymentAmount = downPaymentAmount;
+        this.loanAmount = loanAmount;
         this.creditScore = creditScore;
+        calculateLTV();
+        calculateDTI();
+        calculateFEDTI();
     }
 
     // Getters and Setters
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -95,6 +101,14 @@ public class HomeBuyer {
         this.downPaymentAmount = downPaymentAmount;
     }
 
+    public double getLoanAmount() {
+        return loanAmount;
+    }
+
+    public void setLoanAmount(double loanAmount) {
+        this.loanAmount = loanAmount;
+    }
+
     public int getCreditScore() {
         return creditScore;
     }
@@ -104,4 +118,27 @@ public class HomeBuyer {
     }
 
     // Add methods for calculating DTI, LTV, FEDTI here
+    private void calculateLTV() {
+        this.LTV = this.loanAmount / this.homeAppraisedValue;
+    }
+
+    public double getLTV() {
+        return this.LTV;
+    }
+
+    private void calculateDTI() {
+        this.DTI = (this.monthlyCarPayment + this.monthlyCreditCardPayment + this.studentLoanPayment + this.estimatedMonthlyMortgagePayment) / this.grossMonthlyIncome;
+    }
+
+    public double getDTI() {
+        return this.DTI;
+    }
+
+    private void calculateFEDTI() {
+        this.FEDTI = this.estimatedMonthlyMortgagePayment / this.grossMonthlyIncome;
+    }
+
+    public double getFEDTI() {
+        return this.FEDTI;
+    }
 }
