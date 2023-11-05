@@ -1,4 +1,4 @@
-package bmt;
+package homebuyer;
 
 public class HomeBuyer {
     private int id;
