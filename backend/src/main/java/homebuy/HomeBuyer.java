@@ -1,7 +1,7 @@
 package homebuy;
 
 public class HomeBuyer {
-    // Attributes
+      // Attributes
     private int id;
     private double grossMonthlyIncome;
     private double monthlyCreditCardPayment;
