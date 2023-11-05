@@ -5,7 +5,7 @@ import EvalPotentialHomeBuyer from './components/evalpotentialhomebuyer';
 function App() {
   return (
     <div className="App">
-      <EvalPotentialHomeBuyer />
+      <EvalPotentialHomeBuyer/>
     </div>
   );
 }
